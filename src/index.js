@@ -10,14 +10,11 @@ import middleware from './middleware';
 
 const store = configureStore({reducer},  middleware);
 
-const rootElement = 
-document.getElementById('root');
+const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
   <Provider store={store}>
-    <StrictMode>
       <App/>
-    </StrictMode>
   </Provider>
 );
