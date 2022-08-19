@@ -1,11 +1,10 @@
-import { combineReducers } from "redux";
-
-import users from "./users";
+import {combineReducers} from "@reduxjs/toolkit";
+import authedUser from "./authedUser";
 import questions from "./questions";
-import authUser from "./authUser";
+import users from "./users";
 
 export default combineReducers({
-    authUser,
+    authedUser,
     users,
-    questions
+    questions,
 });
