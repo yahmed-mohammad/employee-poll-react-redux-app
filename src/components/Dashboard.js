@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {connect} from "react-redux";
 import Card from "./Card";
 
@@ -9,12 +10,30 @@ const Dashboard = ({authedUser, questions, users}) => {
     const answered = (question) => (question.optionOne.votes.includes(authedUser.id)
         || question.optionTwo.votes.includes(authedUser.id));
 
+    const [toggleViewOne, setToggleViewOne] = useState(true);
+    const [toggleViewTwo, setToggleViewTwo] = useState(false);
+
+    const handleUnanswered = (e) => {
+        setToggleViewOne(true);
+        setToggleViewTwo(false);
+    }
+
+    const handleAnswered = (e) => {
+        setToggleViewOne(false);
+        setToggleViewTwo(true);
+    }
+
     return (
         <div>
             <h1 data-testid="heading">Dashboard</h1>
 
-            <h4>* New Questions are highlighted in green</h4>
-            <ul className="horiOne">
+            <button onClick={handleUnanswered}
+                    className={toggleViewOne ? "toggleButtonSelect" : "toggleButton"}>Unanswered Questions
+            </button>
+            <button onClick={handleAnswered}
+                    className={toggleViewTwo ? "toggleButtonSelect" : "toggleButton"}>Answered Questions
+            </button>
+            {toggleViewOne && <ul className="horiOne">
                 {questions
                     .filter(unanswered)
                     .map((question) => (
@@ -22,8 +41,8 @@ const Dashboard = ({authedUser, questions, users}) => {
                             <Card question={question} author={users[question.author]}/>
                         </li>
                     ))}
-            </ul>
-            <ul className="horiTwo">
+            </ul>}
+            {toggleViewTwo && <ul className="horiTwo">
                 {questions
                     .filter(answered)
                     .map((question) => (
@@ -31,7 +50,7 @@ const Dashboard = ({authedUser, questions, users}) => {
                             <Card question={question} author={users[question.author]}/>
                         </li>
                     ))}
-            </ul>
+            </ul>}
         </div>
     );
 }
