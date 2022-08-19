@@ -25,7 +25,7 @@ function App({dispatch, loggedIn}) {
                 <Route path="/" element={<CheckRoute><Dashboard/></CheckRoute>}/>
                 <Route path="/leaderboard" exact element={<CheckRoute><Leaderboard/></CheckRoute>}/>
                 <Route path="/questions/:id" element={<CheckRoute><PollPage/></CheckRoute>}/>
-                <Route path="/new" exact element={<CheckRoute><NewPoll/></CheckRoute>}/>
+                <Route path="/add" exact element={<CheckRoute><NewPoll/></CheckRoute>}/>
                 <Route path="/404" exact element={<Error404/>}/>
             </Routes>
         </div>

@@ -25,6 +25,18 @@ const PollPage = ({dispatch, authedUser, question, author}) => {
         navigate("/");
     };
 
+    const calcPercentage = (option, question) => {
+        const numberVotesTotal = question.optionOne.votes.length + question.optionTwo.votes.length;
+        switch (option) {
+            case "optionOne":
+                return question.optionOne.votes.length / numberVotesTotal * 100 + " %";
+            case "optionTwo":
+                return question.optionTwo.votes.length / numberVotesTotal * 100 + " %";
+            default:
+                return "";
+        }
+    };
+
     return (
         <div className="containerPoll">
             <h4>Poll by {author.id}</h4>
@@ -46,6 +58,9 @@ const PollPage = ({dispatch, authedUser, question, author}) => {
                         {!hasVoted &&
                         <p>Click to vote</p>
                         }
+                        {hasVoted &&
+                        <p>Votes: {question.optionOne.votes.length} ({calcPercentage("optionOne", question)})</p>
+                        }
                     </div>
                 </button>
 
@@ -54,6 +69,9 @@ const PollPage = ({dispatch, authedUser, question, author}) => {
                     <p>{question.optionTwo.text}</p>
                     {!hasVoted &&
                     <p>Click to vote</p>
+                    }
+                    {hasVoted &&
+                    <p>Votes: {question.optionTwo.votes.length} ({calcPercentage("optionTwo", question)})</p>
                     }
                 </button>
 

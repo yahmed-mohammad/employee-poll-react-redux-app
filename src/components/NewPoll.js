@@ -7,6 +7,7 @@ const NewPoll = ({dispatch}) => {
     const navigate = useNavigate();
     const [firstOption, setFirstOption] = useState("");
     const [secondOption, setSecondOption] = useState("");
+    const [isValid, setIsValid] = useState(true);
 
     const handleFirstOptionChange = (e) => {
         const value = e.target.value;
@@ -20,6 +21,10 @@ const NewPoll = ({dispatch}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(!firstOption || !secondOption) {
+            setIsValid(false);
+            return;
+        }
         dispatch(handleAddQuestion(firstOption, secondOption));
         navigate("/");
     };
@@ -60,6 +65,7 @@ const NewPoll = ({dispatch}) => {
                             className="inputNewPoll"/>
                     </div>
                 </div>
+                { !isValid && <div className="error" >Please enter valid values and submit again.</div>}
 
                 <div className="">
                     <button type="submit"

@@ -15,7 +15,7 @@ const Nav = ({dispatch, authedUserId}) => {
                   className="nav">Home</Link>
             <Link to="/leaderboard"
                   className="nav">Leaderboard</Link>
-            <Link to="/new"
+            <Link to="/add"
                   className="nav">New
                 Poll</Link>
             <span
