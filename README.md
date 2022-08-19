@@ -17,6 +17,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+## About the App
+By Default you will be logged in as zoshikanlu. You can change the username password as per the data provided.
 
 ### `npm test`
 
@@ -32,10 +34,6 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## About the App
-
-By Default you will be logged in as zoshikanlu. You can change the username password as per the data provided.
 
 ## Learn More
 
