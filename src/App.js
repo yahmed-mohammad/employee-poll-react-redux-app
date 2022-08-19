@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import Nav from "./components/Nav";
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes} from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import NewPoll from "./components/NewPoll";
 import PollPage from "./components/PollPage";
@@ -27,6 +27,7 @@ function App({dispatch, loggedIn}) {
                 <Route path="/questions/:id" element={<CheckRoute><PollPage/></CheckRoute>}/>
                 <Route path="/add" exact element={<CheckRoute><NewPoll/></CheckRoute>}/>
                 <Route path="/404" exact element={<Error404/>}/>
+                <Route path="*" exact element={<Navigate to={"/404"}/>}/>
             </Routes>
         </div>
     );
