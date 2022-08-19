@@ -1,13 +1,267 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap');
+
+.containerLogin {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 350px;
+  height: 550px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.brand-logo {
+  height: 160px;
+  width: 200px;
+  background: url("img/logo.jpg");
+  margin: auto;
+  border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px white;
 }
+
+.brand-title {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #1DA1F2;
+  letter-spacing: 1px;
+}
+
+.inputs {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.lableLogin, .inputLogin, .buttonLogin {
+  text-align: center;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.lableLogin {
+  margin-bottom: 4px;
+}
+
+
+.inputLogin::placeholder {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: gray;
+}
+
+.inputLogin {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+.buttonLogin {
+  color: white;
+  margin-top: 20px;
+  background: #1DA1F2;
+  height: 40px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+
+.buttonLogin:hover {
+  box-shadow: none;
+}
+
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin: 20px 20px 20px 20px;
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  background-color: aliceblue;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-color: bisque;
+}
+
+/* Add some padding inside the card container */
+.containerCard {
+  padding: 2px 16px;
+}
+
+.avator {
+  border-radius:100px;
+  width:48px;
+  margin-right: 15px;
+}
+
+ul.horiOne li.first{
+  float:left; 
+  width:33%;
+  list-style: none;
+  background-color: aquamarine;
+}
+
+ul.horiTwo li.second{
+  float:left; 
+  width:33%;
+  list-style: none;
+}
+
+.navbar {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0rem;
+  background-color: #fff;
+  color: black;
+  box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
+}
+
+.nav {
+  margin:0;
+    padding:20px;
+    list-style:none;
+    height:36px; line-height:36px;
+    background:#0d7963; /* you can change the backgorund color here. */
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:13px;
+    border-right:1px solid #189b80; /* you can change the border color matching to your background color */
+    float:left;
+    display:block;
+    padding:0 28px;
+    color:#ccece6;
+    text-decoration:none;
+}
+
+.nav:hover {
+  background-color: aliceblue;
+  color: black;
+}
+
+.navButton {
+  text-transform: uppercase;
+  margin: 35px auto;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.29);
+  cursor: pointer;
+  background: #fff;
+  font-size: 16px;
+  width: 100px;
+  position: relative;
+}
+
+.navText {
+  float: right;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 100px;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+
+.pollImage {
+  width: 150px;
+  height: 150px;
+}
+
+.buttonPoll {
+  width: 100%;
+  background-color: grey;
+  border: none;
+  color: white;
+  margin-top: 20px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.buttonPollVoted {
+  background-color: #189b80;
+}
+
+.buttonPoll:hover {
+  width: 100%;
+  background-color: black;
+  border: none;
+  color: white;
+  margin-top: 20px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.containerPoll {
+  margin-top: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 500px;
+  height: 600px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.containerNewPoll {
+  margin-top: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 350px;
+  height: 550px;
+  border-radius: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+
+.inputNewPoll {
+  width: 100%;
+  height: 50px;
+  padding: 12px 20px;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: none;
+}
+

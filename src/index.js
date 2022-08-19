@@ -1,20 +1,18 @@
 import React from 'react';
-import './index.css';
-import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
-import App from './component/App';
-import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
-import reducer from './reducers';
-import middleware from './middleware';
+import {store} from './store';
+import App from './App';
+import './index.css';
+import {BrowserRouter} from "react-router-dom";
 
-const store = configureStore({reducer},  middleware);
-
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
+const container = document.getElementById('root');
+const root = createRoot(container);
 
 root.render(
-  <Provider store={store}>
-      <App/>
-  </Provider>
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
 );
