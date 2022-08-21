@@ -1,13 +1,15 @@
 import {connect} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useState} from "react";
 import {handleAddQuestion} from "../actions/questions";
 
-const NewPoll = ({dispatch}) => {
-    const navigate = useNavigate();
+const NewPoll = ({dispatch, authedUser, questions}) => {
+    console.log(authedUser);
+    //const navigate = useNavigate();
     const [firstOption, setFirstOption] = useState("");
     const [secondOption, setSecondOption] = useState("");
     const [isValid, setIsValid] = useState(true);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleFirstOptionChange = (e) => {
         const value = e.target.value;
@@ -26,8 +28,8 @@ const NewPoll = ({dispatch}) => {
             return;
         }
         dispatch(handleAddQuestion(firstOption, secondOption));
-        navigate("/");
-    };
+        setIsSubmitted(true);
+        };
 
     return (
         <div className="containerNewPoll">
@@ -69,15 +71,27 @@ const NewPoll = ({dispatch}) => {
 
                 <div className="">
                     <button type="submit"
-                            data-testid="submit-poll"
-                            className="buttonLogin">
+                        data-testid="submit-poll"
+                        className="buttonLogin">
                         Submit
                     </button>
                 </div>
+                { isSubmitted && <div>
+                    <br/>
+                    Form Submitted Successfully<br/>
+                    <Link to={'/questions/'+ Object.values(questions)[Object.keys(questions).length-1].id}>
+                    Please click to view the added question
+                    </Link>
+                </div>}
 
             </form>
         </div>
     );
 };
 
-export default connect()(NewPoll);
+const mapStateToProps = ({questions, authedUser}) => ({
+    authedUser: authedUser,
+    questions: questions
+});
+
+export default connect(mapStateToProps)(NewPoll);
