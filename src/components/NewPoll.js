@@ -78,7 +78,7 @@ const NewPoll = ({dispatch, authedUser, questions}) => {
                 </div>
                 { isSubmitted && <div>
                     <br/>
-                    Form Submitted Successfully<br/>
+                    Poll was added Successfully<br/>
                     <Link to={'/questions/'+ Object.values(questions)[Object.keys(questions).length-1].id}>
                     Please click to view the added question
                     </Link>
