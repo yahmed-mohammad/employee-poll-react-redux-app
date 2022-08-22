@@ -1,4 +1,39 @@
 const {_saveQuestionAnswer, _saveQuestion} = require("./_DATA");
+
+
+describe("_saveQuestion", () => {
+    
+    it("should respond with formated question for correct parameters", async () => {
+        const mockQuestion = {
+            author: {
+                id:'sarahedo',
+            },
+            optionOneText: 'Option1',
+            optionTwoText: 'Option2'
+        };
+
+        const result = await _saveQuestion(mockQuestion);
+
+        expect(result.author).toEqual(mockQuestion.author.id);
+        expect(result.optionOne.text).toEqual(mockQuestion.optionOneText);
+        expect(result.optionTwo.text).toEqual(mockQuestion.optionTwoText);
+        expect(result).toHaveProperty('id');
+        expect(result).toHaveProperty('timestamp');
+    });
+
+    it("should return error for wrong parameters", async () => {
+        const response = await _saveQuestion({
+            optionOneText: "Hello",
+            optionTwoText: undefined,
+            author: {
+                id: "sarahedo"
+            }
+        }).catch(e => e);
+
+        expect(response).toBe("Please provide optionOneText, optionTwoText, and author");
+    });
+});
+
 describe("_saveQuestionAnswer", () => {
     it("should return true for correct parameters", async () => {
         const response = await _saveQuestionAnswer({
@@ -21,30 +56,3 @@ describe("_saveQuestionAnswer", () => {
     });
 });
 
-describe("_saveQuestion", () => {
-    /** 
-    it("should return respond with formated question for correct parameters", async () => {
-        const question = {
-            optionOneText: "Learn in Classroom",
-            optionTwoText: "Learn Online",
-            author: "sarahedo"
-        };
-        const response = await _saveQuestion(question);
-        
-        expect(response.id).toBeTruthy();
-        expect(response.author).toBe(question.author.id);
-        expect(response.optionOne.text).toBe(question.optionOneText);
-        expect(response.optionTwo.text).toBe(question.optionTwoText);
-    });
-    */
-
-    it("should return error for wrong parameters", async () => {
-        const response = await _saveQuestion({
-            optionOneText: "Hello",
-            optionTwoText: undefined,
-            author: "sarahedo"
-        }).catch(e => e);
-
-        expect(response).toBe("Please provide optionOneText, optionTwoText, and author");
-    });
-});

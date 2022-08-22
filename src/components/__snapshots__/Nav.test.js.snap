@@ -22,7 +22,7 @@ Object {
         </a>
         <a
           class="nav"
-          href="/new"
+          href="/add"
         >
           New Poll
         </a>
@@ -59,7 +59,7 @@ Object {
       </a>
       <a
         class="nav"
-        href="/new"
+        href="/add"
       >
         New Poll
       </a>
