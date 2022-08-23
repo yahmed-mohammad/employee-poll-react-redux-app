@@ -1,15 +1,14 @@
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {handleAddQuestion} from "../actions/questions";
 
-const NewPoll = ({dispatch, authedUser, questions}) => {
-    console.log(authedUser);
-    //const navigate = useNavigate();
+const NewPoll = ({dispatch, questions}) => {
+    const navigate = useNavigate();
     const [firstOption, setFirstOption] = useState("");
     const [secondOption, setSecondOption] = useState("");
     const [isValid, setIsValid] = useState(true);
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    //const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleFirstOptionChange = (e) => {
         const value = e.target.value;
@@ -28,7 +27,8 @@ const NewPoll = ({dispatch, authedUser, questions}) => {
             return;
         }
         dispatch(handleAddQuestion(firstOption, secondOption));
-        setIsSubmitted(true);
+        //setIsSubmitted(true);
+        navigate("/");
         };
 
     return (
@@ -76,13 +76,13 @@ const NewPoll = ({dispatch, authedUser, questions}) => {
                         Submit
                     </button>
                 </div>
-                { isSubmitted && <div>
+                {/* { isSubmitted && <div>
                     <br/>
                     Poll was added Successfully<br/>
                     <Link to={'/questions/'+ Object.values(questions)[Object.keys(questions).length-1].id}>
                     Please click to view the added question
                     </Link>
-                </div>}
+                </div>} */}
 
             </form>
         </div>
